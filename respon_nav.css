@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+/*di HTML nya kan ada class "fas fa-search" itu bukan class buatan kita itu emang uda dari sananya itu buat ngasi tanda search*/
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+}
+
+nav{
+    background: #222222;
+    padding: 10px 40px 10px 70px;
+    border: 1px solid #000;
+    border-left: none;
+    border-right: none;
+}
+nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    /*ini tuh buat jadi kalo semisalkan di kecilin layarnya nah nanti tuh kebawah semua lurus rapi satu satu*/
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+}
+nav ul .logo{
+    flex: 1;
+    font-size: 30px;
+    font-weight: bold;
+}
+nav ul .anak{
+    display: inline-flex;
+}
+nav ul .anak a{
+    text-decoration: none;
+    font-size: 18px;
+    padding: 0 12px;
+}
+nav ul .anak a:hover{
+    color: cyan;
+}
+nav ul .search-box{
+    height: 40px;
+    width: 240px;
+    display: flex;
+    background: #f2f2f2;
+    border-radius: 5px;
+}
+/*kalau ini buat ngatur bagian dalemnya*/
+nav ul .search-box input{
+    height: 100%;
+    width: 200px;
+    border: none;
+    padding: 0 10px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #000;
+    font-size: 16px;
+}
+nav ul .search-box .icon{
+    height: 100%;
+    width: 40px;
+    border: 1px solid #cccccc;
+    padding-top: 10px;
+    text-align: center;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+nav ul .search-box .icon span{
+    color: #222222;
+    font-size: 18px;
+    /*sekarang dia fungsinya buat ukuran tanda search nya*/
+}
+nav ul .search-box .icon:hover{
+    background: #e6e6e6;
+}
+nav ul .btn{
+    padding: 0 40px;
+    display: none;
+    /*biar kalau ukuran biasa mah dia ilang kalo ukurannya kecil baru adaan nnti di @media nya diatur*/
+}
+nav ul .btn span{
+    height: 42px;
+    width: 42px;
+    text-align: center;
+    line-height: 42px;
+    border: 1px solid #151515;
+    border-radius: 5px;
+    cursor: pointer;
+}
+nav ul .btn span.show:before{
+    content: '\f00d';
+}
+
+
+@media screen and (max-width: 890px){
+    nav {
+        padding: 10px 40px 10px 0;
+    }
+    nav ul .logo{
+        display: none;
+        /*ngilangin logo*/
+    }
+    nav ul .anak{
+        flex: 4;
+    }
+}
+
+@media screen and (max-width:651px){
+    nav ul .btn{
+        display: block;
+    }
+    nav {
+        z-index: 1;
+        padding: 10px 40px 10px 0;
+    }
+    nav ul .anak{
+        z-index: -1;
+        position: fixed;
+        top: -220px;
+        right: 0;
+        width: 100%;
+        display: inline-block;
+        background: #222222;
+        transition: top .4s;
+    }
+    nav ul .anak.show{
+        top: 60px;
+    }
+    nav ul .anak li{
+        text-align: center;
+        line-height: 30px;
+        margin: 30px 0;
+    }
+}
